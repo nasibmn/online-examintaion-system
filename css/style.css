@@ -1,0 +1,48 @@
+body {
+	background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)),url("../img/bg.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.reg-box{
+	display: block;
+	max-width: 50%;	
+	margin: 150px auto;
+}
+.logn{
+	border-style:groove;
+	box-shadow: 7px 20px 8px #f2f2f2;
+	border-radius: 10px;
+	background: rgba(200, 200, 220, 0.6);
+	padding: 20px;
+	margin-left: 16px;
+}
+.form-control{
+	background-color: #FFFFFF !important;
+}
+.alert-danger {
+	display: block;
+ border-radius: 5px;
+ margin-left: 20px;
+	box-shadow: 4px 4px 4px   #f9a998; 
+}
+.alert-success{
+	border-radius: 5px;
+	box-shadow: 4px 4px 4px #23ff37;
+}
+.alert-warning{
+	display: block;
+	border-radius: 5px;
+	box-shadow: 4px 4px 4px  #e9f75e;
+}
+.modal-header{
+	background-image: url("header-cloud.jpg");
+	font:normal bold 40px Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	
+}
+.selector{
+	text-align: right;
+}
+.btn-sm{margin-left: 15px}
+.rdr{
+	margin-left: 15px;
+}
