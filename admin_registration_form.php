@@ -1,26 +1,31 @@
 <?php
-session_start();
-$db = mysqli_connect('localhost', 'root', '', 'userinformation');
+require_once __DIR__ . '/bootstrap.php';
 
-if (isset($_POST['submit']))
-{
-    $adsoyad = mysqli_real_escape_string($db, $_POST['adsoyad']);
-    $email = mysqli_real_escape_string($db, $_POST['kullanici']);
-    $password = ($_POST['pwd']);
-
-    $check_email = mysqli_query($db, "SELECT `Email` FROM `teacher_table` WHERE Email = '$email'");
-    if (mysqli_num_rows($check_email) > 0)
-    {
-        header('location: admin_reg.php?mvct=E-posta Mevcuttur!');
-    }
-    else
-    {
-
-        $query = "INSERT INTO `teacher_table` (adsoyad ,Email, password) 
-          VALUES('$adsoyad','$email', '$password')";
-        mysqli_query($db, $query);
-        $_SESSION['success'] = "Giriş Başarılı";
-        header('location: admin_login.php?success=Kaydınız başarıyla tamamlandı');
-    }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['submit'])) {
+    header('Location: admin_reg.php');
+    exit;
 }
-?>
+
+$name = trim((string) $_POST['adsoyad']);
+$email = trim((string) $_POST['kullanici']);
+$password = (string) $_POST['pwd'];
+
+if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($password) < 6) {
+    header('Location: admin_reg.php?mvct=' . urlencode('Gecersiz kayit bilgileri.'));
+    exit;
+}
+
+$check = db()->prepare('SELECT id FROM teacher_table WHERE Email = ? LIMIT 1');
+$check->bind_param('s', $email);
+$check->execute();
+if ($check->get_result()->fetch_assoc()) {
+    header('Location: admin_reg.php?mvct=' . urlencode('Bu e-posta zaten kayitli.'));
+    exit;
+}
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+$insert = db()->prepare('INSERT INTO teacher_table (adsoyad, Email, password) VALUES (?, ?, ?)');
+$insert->bind_param('sss', $name, $email, $hash);
+$insert->execute();
+header('Location: admin_login.php?success=' . urlencode('Kaydiniz basariyla tamamlandi.'));
+exit;

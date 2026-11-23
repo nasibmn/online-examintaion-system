@@ -1,5 +1,17 @@
 # online-examintaion-system
-it's an online examination system using php, jquery, MySQL and bootdtrap. It's not completed but you can manipulate it as you want
+An online examination system built with PHP, jQuery, MySQL and Bootstrap.
+
+## Kurulum
+
+1. MySQL kullanarak `schema.sql` dosyasini iceri aktar:
+   `mysql -u root -p < schema.sql`
+2. PHP'nin mysqli uzantisinin etkin oldugundan emin ol.
+3. Projeyi XAMPP, Apache veya PHP'nin yerel sunucusuyla calistir:
+   `php -S localhost:8080`
+4. `http://localhost:8080` adresini ac.
+
+Veritabani ayarlari ortam degiskenleriyle degistirilebilir:
+`DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME` ve `DB_PORT`.
 
 you can open project by running xampp
 

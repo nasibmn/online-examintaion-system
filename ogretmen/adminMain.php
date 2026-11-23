@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../bootstrap.php';
+require_login('teacher');
+?>
 <!doctype html>
 <html>
 <head>
@@ -20,7 +24,7 @@
 		</div>
 		<div class="otitle"><span class="ogrenci">Öğretmen </span><span class="sayfasi"> Sayfası</span></div>
 		<div class="right_area">
-			<a href="../admin_login.php" class="logout_btn">ÇIKIŞ</a>
+			<a href="../logout.php" class="logout_btn">ÇIKIŞ</a>
 		</div>
 	</header>
 	<div class="sidebar">
@@ -31,8 +35,8 @@
 		<a href="studentlist.php" target="all_display"><i class="fas fa-user-graduate"></i><span>Öğrenciler</span></a>
 		<a href="dersEC.php" target="all_display"><i class="fas fa-calculator"></i><span>Sınav Ekleme Çıkarma</span></a>
 		<a href="sorular.php" target="all_display"><i class="fas fa-question"></i><span>Sorular</span></a>
-		<a href="#"><i class="fas fa-chart-pie"></i><span>Sonuçlar</span></a>
-		<a href="../admin_login.php"><i class="fas fa-sign-out-alt"></i><span>ÇIKIS YAP</span></a>
+		<a href="results.php" target="all_display"><i class="fas fa-chart-pie"></i><span>Sonuçlar</span></a>
+		<a href="../logout.php"><i class="fas fa-sign-out-alt"></i><span>ÇIKIS YAP</span></a>
 	</div>
 	<div class="content">
 		<iframe class="fram" name="all_display" src="main_frame.php"></iframe>
