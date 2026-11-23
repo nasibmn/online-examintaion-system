@@ -1,4 +1,6 @@
-<?php 
+<?php
+require_once __DIR__ . '/../bootstrap.php';
+require_login('teacher');
    require_once("dizi.php");
    require_once("db.php");  
    ?>

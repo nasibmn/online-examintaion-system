@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../bootstrap.php';
+require_login('student');
+?>
 <!doctype html>
 <html>
 <head>
@@ -18,7 +22,7 @@
 		</div>
 		<div class="otitle"><span class="ogrenci">Öğrenci </span><span class="sayfasi"> Sayfası</span></div>
 		<div class="right_area">
-			<a href="../user_login.php" class="logout_btn">ÇIKIŞ</a>
+			<a href="../logout.php" class="logout_btn">ÇIKIŞ</a>
 		</div>
 	</header>
 	<div class="sidebar">
@@ -26,42 +30,14 @@
 			<img src="img/o1.jpg" class="profile_image">
 			<h4>Kişi Bilgisi</h4>
 		</center>
-		<a href="#"><i class="fas fa-book"></i><span>Derslerim</span></a>
-		<a href="#"><i class="fas fa-diagnoses"></i><span>Sınavlarım</span></a>
-		<a href="#"><i class="fas fa-chart-pie"></i><span>sonuçlarım</span></a>
-		<a href="../user_login.php"><i class="fas fa-sign-out-alt"></i><span>ÇIKIS YAP</span></a>
+		<a href="exams.php" target="student_content"><i class="fas fa-book"></i><span>Sinavlar</span></a>
+		<a href="exams.php" target="student_content"><i class="fas fa-diagnoses"></i><span>Sınavlarım</span></a>
+		<a href="results.php" target="student_content"><i class="fas fa-chart-pie"></i><span>Sonucularım</span></a>
+		<a href="../logout.php"><i class="fas fa-sign-out-alt"></i><span>ÇIKIS YAP</span></a>
 	</div>
 	<div class="content">
 						<div class="main">
-		<div class="cardBox">
-			<div class="card">
-				<div>
-					<div class="numbers">6</div>
-					<div class="cardName">Derslerim</div>
-				</div>
-				<div class="iconBox">
-					<i class="fas fa-book"></i>
-				</div>
-			</div>
-						<div class="card">
-				<div>
-					<div class="numbers">3</div>
-					<div class="cardName">Sınavlarım</div>
-				</div>
-				<div class="iconBox">
-					<i class="fas fa-question"></i>
-				</div>
-			</div>
-						<div class="card">
-				<div>
-					<div class="numbers">1</div>
-					<div class="cardName">Sonuçlarım</div>
-				</div>
-				<div class="iconBox">
-					<i class="fas fa-chart-pie"></i>
-				</div>
-			</div>
-		</div>
+						<iframe name="student_content" src="exams.php" style="width:100%;height:85%;border:0;"></iframe>
 		<div class="footer">
 		<p>Copyright onexam © 2021. All rights reserved.</p>
 	</div>
